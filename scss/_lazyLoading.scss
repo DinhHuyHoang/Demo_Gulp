@@ -1,0 +1,85 @@
+html {
+  background-color: #FFF;
+}
+
+.lazy {
+  display: block;
+  justify-self: center;
+  align-items: center;
+  position: relative;
+}
+
+.lazy.spin {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  &:after {
+    content: "";
+    display: block;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+  }
+}
+
+.lazy.gradient {
+  &::after {
+    content: "";
+    display: block;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #fbfbfb 10%, #f4f4f4 38%, #fafafa 54%);
+    background-size: 1000px 640px;
+    position: relative;
+    height: 100%;
+  }
+}
+
+
+.lazy-background {
+  background-image: none !important
+}
+
+.element {
+  padding: 4px 0px;
+  height: 24vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.element-1 {
+  // height: 60vw;
+  width: 100%;
+  object-fit: contain;
+  border: 1px solid;
+  padding: 4px;
+}
+
+.portrait {
+  height: auto;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+      background-position: -468px 0
+    }
+    100%{
+      background-position: 468px 0
+    }
+}
